@@ -14,7 +14,7 @@ def main():
     
     # If the user just typed 'python main.py' with no commands, exit gracefully
     if len(args) < 2:
-        print("Usage: task-cli <command> [arguments]")
+        print("Usage: python main.py <command> [arguments]")
         return
 
     command = args[1]
