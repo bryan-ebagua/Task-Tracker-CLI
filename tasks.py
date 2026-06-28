@@ -41,7 +41,7 @@ def mark_in_progress(index):
     tasks = load_tasks()
     for task in tasks:
         if(task["id"] == int(index)):
-            task["status"] = "In progress"
+            task["status"] = "in-progress"
             task["updatedAt"] = datetime.now().isoformat()
             print(f"Task {index} marked as in progress")
             break
@@ -52,7 +52,7 @@ def mark_done(index):
     tasks = load_tasks()
     for task in tasks:
         if(task["id"] == int(index)):
-            task["status"] = "Done"
+            task["status"] = "done"
             task["updatedAt"] = datetime.now().isoformat()
             print(f"Task {index} marked as done")
             break
