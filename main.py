@@ -1,7 +1,11 @@
 import sys
-from tasks import add_task
-from tasks import list_tasks
-from tasks import update_task
+from tasks import (
+    add_task,
+    list_tasks, 
+    update_task,
+    mark_in_progress,
+    mark_done
+)
 
 def main():
     # Store the arguments in a variable for easy access
@@ -34,6 +38,16 @@ def main():
             update_task(args[2], " ".join(args[3:]))
         else:
             print("Error: Please provide a new task")
+    elif command == "mark-in-progress":
+        if len(args) > 2:
+            mark_in_progress(args[2])
+        else:
+            print("Error: Please provide an index")
+    elif command == "mark-done":
+        if len(args) > 2:
+            mark_done(args[2])
+        else:
+            print("Error: Please provide an index")
     else:
         print(f"Unknown command: {command}")
 

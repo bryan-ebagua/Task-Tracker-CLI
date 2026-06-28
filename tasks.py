@@ -35,7 +35,25 @@ def update_task(index, newTask):
             print(f"Task {index} updated successfully")
             break
     save_tasks(tasks)
-    """
-    tasks[int(index)-1]["description"] = newTask
+
+# Changes task status to in progress
+def mark_in_progress(index):
+    tasks = load_tasks()
+    for task in tasks:
+        if(task["id"] == int(index)):
+            task["status"] = "In progress"
+            task["updatedAt"] = datetime.now().isoformat()
+            print(f"Task {index} marked as in progress")
+            break
     save_tasks(tasks)
-    """
+
+#Changes task status to done
+def mark_done(index):
+    tasks = load_tasks()
+    for task in tasks:
+        if(task["id"] == int(index)):
+            task["status"] = "Done"
+            task["updatedAt"] = datetime.now().isoformat()
+            print(f"Task {index} marked as done")
+            break
+    save_tasks(tasks)
