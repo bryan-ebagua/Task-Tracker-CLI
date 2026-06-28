@@ -1,5 +1,6 @@
 import sys
 from tasks import add_task
+from tasks import list_tasks
 
 def main():
     # Store the arguments in a variable for easy access
@@ -15,11 +16,18 @@ def main():
     if command == "add":
         # 1. Grab the description from the args list
         description = " ".join(args[2:])
+        if not description:
+            print("Error: Please provide a description for the task.")
+            return
         # 2. Call add_task(description) and store the returned ID
         task_id = add_task(description)
         # 3. Print "Task added successfully (ID: X)"
         print(f"Task added successfully (ID: {task_id})")
-
+    elif command == "list":
+        if len(args) > 2:
+            list_tasks(args[2])
+        else:
+            list_tasks()
     else:
         print(f"Unknown command: {command}")
 
