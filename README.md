@@ -56,3 +56,4 @@ python main.py list "In progress"
 # View only completed tasks
 python main.py list Done
 ```
+Inspired by https://roadmap.sh/projects/task-tracker
