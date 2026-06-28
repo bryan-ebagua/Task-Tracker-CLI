@@ -23,7 +23,7 @@ def list_tasks(filter = None):
     for task in tasks:
         if filter != None and task["status"] != filter:
             continue
-        print(f"{task["description"]} status: {task["status"]}")
+        print(f"{task["id"]} {task["description"]} status: {task["status"]}")
 
 # Changes the description of an existing task
 def update_task(index, newTask):
@@ -56,4 +56,14 @@ def mark_done(index):
             task["updatedAt"] = datetime.now().isoformat()
             print(f"Task {index} marked as done")
             break
+    save_tasks(tasks)
+
+#Deletes a task
+def delete_task(index):
+    tasks = load_tasks()    
+    for task in tasks:
+        if task["id"] == int(index):
+            tasks.remove(task) 
+            print(f"Task {index} deleted successfully.")
+            break        
     save_tasks(tasks)

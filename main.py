@@ -4,7 +4,8 @@ from tasks import (
     list_tasks, 
     update_task,
     mark_in_progress,
-    mark_done
+    mark_done,
+    delete_task
 )
 
 def main():
@@ -46,6 +47,11 @@ def main():
     elif command == "mark-done":
         if len(args) > 2:
             mark_done(args[2])
+        else:
+            print("Error: Please provide an index")
+    elif command == "delete":
+        if len(args) > 2:
+            delete_task(args[2])
         else:
             print("Error: Please provide an index")
     else:
