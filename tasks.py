@@ -13,6 +13,7 @@ def add_task(description):
     tasks.append(newDict)
     save_tasks(tasks)
     return newID
+
 # Prints out existing tasks. Allows you to filter for tasks based on their status
 def list_tasks(filter = None):
     tasks = load_tasks()
@@ -23,4 +24,18 @@ def list_tasks(filter = None):
         if filter != None and task["status"] != filter:
             continue
         print(f"{task["description"]} status: {task["status"]}")
-    
+
+# Changes the description of an existing task
+def update_task(index, newTask):
+    tasks = load_tasks()
+    for task in tasks:
+        if(task["id"] == int(index)):
+            task["description"] = newTask
+            task["updatedAt"] = datetime.now().isoformat()
+            print(f"Task {index} updated successfully")
+            break
+    save_tasks(tasks)
+    """
+    tasks[int(index)-1]["description"] = newTask
+    save_tasks(tasks)
+    """

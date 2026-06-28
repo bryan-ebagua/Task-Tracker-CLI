@@ -1,6 +1,7 @@
 import sys
 from tasks import add_task
 from tasks import list_tasks
+from tasks import update_task
 
 def main():
     # Store the arguments in a variable for easy access
@@ -28,6 +29,11 @@ def main():
             list_tasks(args[2])
         else:
             list_tasks()
+    elif command == "update":
+        if len(args) > 3:
+            update_task(args[2], " ".join(args[3:]))
+        else:
+            print("Error: Please provide a new task")
     else:
         print(f"Unknown command: {command}")
 
